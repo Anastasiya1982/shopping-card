@@ -3,12 +3,14 @@ import s from './style.module.css';
 import data from '../../data';
 import Products from "./Products/products";
 import Filter from "../Filter/filter";
+import Cart from "../Cart/cart";
 
 class Main extends React.Component{
     constructor() {
         super();
         this.state={
             products:data.products,
+            cartItems:[],
             size:" ",
             sort:" "
         };
@@ -47,6 +49,33 @@ class Main extends React.Component{
         }
 
 }
+   removeFromCart=(product)=>{
+       console.log('remove from cart');
+       console.log(product);
+       const cartItems=this.state.cartItems.slice();
+       this.setState({
+           cartItems:cartItems.filter(item=>item._id !==product._id)
+       })
+    }
+
+   addToCart=(product)=>{
+       console.log('Product is added');
+       const cartItems=this.state.cartItems;
+       let alreadyInCart=false
+       cartItems.forEach((item)=>{
+           if(item._id===product._id){
+               item.count++;
+               alreadyInCart=true;
+           }
+       });
+       if(!alreadyInCart){
+           cartItems.push({...product,count:1})
+       }
+       this.setState({
+           cartItems:cartItems
+       })
+   }
+
     render() {
         return (
             <>
@@ -59,9 +88,14 @@ class Main extends React.Component{
                                     filterProduct={this.filterProduct}
                                     sortProduct={this.sortProduct}
                             />
-                            <Products products={this.state.products}/>
+                            <Products products={this.state.products}
+                                      addToCart={this.addToCart}
+                            />
                         </div>
-                        <div className={s.sidebar}>CardItems</div>
+                        <div className={s.sidebar}>
+                            <Cart cartItems={this.state.cartItems}
+                            removeFromCart={this.removeFromCart}/>
+                        </div>
                     </div>
                 </main>
 
