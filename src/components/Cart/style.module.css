@@ -30,7 +30,7 @@
 .button{
     padding: 1rem;
     border:  0.1rem  solid #c0c0c0;
-    /*background-color: #f0f0f0;*/
+    background-color: #f0f0f0;
     cursor: pointer;
     border-radius: 5px;
     font-size: 14px;
@@ -53,4 +53,27 @@ button:hover{
 }
 .total > div, .total> button {
     flex: 1;
+}
+/* form container*/
+.form{
+    width: 100%;
+}
+.formContainer{
+    width: 100%;
+    padding: 0;
+    list-style-type: none;
+}
+
+.formContainer li{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+input{
+    padding: 1rem;
+    border: 0.1rem solid #c0c0c0;
+}
+lable{
+    font-weight: bold;
 }
