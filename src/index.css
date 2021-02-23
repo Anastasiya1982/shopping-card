@@ -12,7 +12,7 @@ body,
   margin: 0;
 }
 body, input,select, textarea, button{
-  font-family: 'Montserrat',  Helvetica, Arial sans-serif;
+  font-family: Montserrat,  Helvetica, Arial sans-serif;
   font-size: 1.6rem;
 
 }

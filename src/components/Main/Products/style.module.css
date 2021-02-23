@@ -39,9 +39,11 @@
 .productPrice button{
  text-align: center;
     flex: 1;
+
 }
 .productPrice div{
     font-size: 2rem;
+    font-weight: bold;
 }
 .button{
     padding: 1rem;
