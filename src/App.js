@@ -8,11 +8,13 @@ import {Provider} from "react-redux";
 
 function App() {
   return (
-    <div className='grid-container'>
-      <Header/>
-      <Main/>
-      <Footer/>
-    </div>
+      <Provider store={store}>
+          <div className='grid-container'>
+              <Header/>
+              <Main/>
+              <Footer/>
+          </div>
+      </Provider>
   );
 }
 
